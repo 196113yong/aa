@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+          table{
+          	width: 400px;
+          	height: 200px;
+          }
+		</style>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>名称</th>
+				<th>单价</th>
+				<th>数量</th>
+				<th>小计</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<th>
+					iphone5
+				</th>
+				<th class="danjia">
+					3200元
+				</th>
+				<th>
+					<input type="button" value="-" onclick="jian1()"/><span>1</span>
+					<input type="button" value="+" onclick="jia1()"/>
+				</th>
+				<th class="xiaoji">3200元</th>
+				<th id="sc1"></th>
+			</tr>
+			<tr>
+				<th>
+					iphone6
+				</th>
+				<th class="danjia">
+					4400元
+				</th>
+				<th>
+					<input type="button" value="-"/ onclick="jian2()"><span>0</span>
+					<input type="button" value="+" onclick="jia2()"/>
+				</th>
+				<th class="xiaoji">0元</th>
+				<th id="sc2"></th>
+			</tr>
+			<tr>
+				<th>
+					iphone6s
+				</th>
+				<th class="danjia">
+					5000元
+				</th>
+				<th>
+					<input type="button" value="-" onclick="jian3()"/><span>1</span>
+					<input type="button" value="+" onclick="jia3()"/>
+				</th>
+				<th class="xiaoji">5000元</th>
+				<th id="sc3"></th>
+			</tr>
+			<tr>
+				<th>
+					iphone7
+				</th>
+				<th class="danjia">
+					6000元
+				</th>
+				<th>
+					<input type="button" value="-" onclick="jian4()"/><span>0</span>
+					<input type="button" value="+" onclick="jia4()"/>
+				</th>
+				<th class="xiaoji">0元</th>
+				<th id="sc4"></th>
+			</tr>
+			<tr>
+			    <th colspan="5" id="he">总价：8200元</th>
+			</tr>
+		</table>
+		<script>
+		var sc1 = document.getElementById("sc1");
+		var ipt1 = document.createElement("input");
+		ipt1.type = "button";
+		ipt1.value = "删除";
+		sc1.appendChild(ipt1);
+		ipt1.onclick = function(){
+			ipt1.parentNode.parentNode.parentNode.removeChild(ipt1.parentNode.parentNode)
+		}
+		var sc2 = document.getElementById("sc2");
+		var ipt2 = document.createElement("input");
+		ipt2.type = "button";
+		ipt2.value = "删除";
+		sc2.appendChild(ipt2);
+		ipt2.onclick = function(){
+			ipt2.parentNode.parentNode.parentNode.removeChild(ipt2.parentNode.parentNode)
+		}
+		var sc3 = document.getElementById("sc3");
+		var ipt3 = document.createElement("input");
+		ipt3.type = "button";
+		ipt3.value = "删除";
+		sc3.appendChild(ipt3);
+		ipt3.onclick = function(){
+			ipt3.parentNode.parentNode.parentNode.removeChild(ipt3.parentNode.parentNode)
+		}
+		var sc4 = document.getElementById("sc4");
+		var ipt4 = document.createElement("input");
+		ipt4.type = "button";
+		ipt4.value = "删除";
+		sc4.appendChild(ipt4);
+		ipt4.onclick = function(){
+			ipt4.parentNode.parentNode.parentNode.removeChild(ipt4.parentNode.parentNode)
+		}
+		var danjia = document.getElementsByClassName("danjia");
+		var xiaoji = document.getElementsByClassName("xiaoji");
+		var s = document.getElementsByTagName("span");
+		function jian1(){
+			if(s[0].innerHTML==0){
+				
+			}else{
+				s[0].innerHTML--;
+			}
+				xiaoji[0].innerHTML=parseInt(danjia[0].innerHTML)*s[0].innerHTML+"元";
+				zh();
+		}
+	
+		function jia1(){
+				s[0].innerHTML++;
+				xiaoji[0].innerHTML=parseInt(danjia[0].innerHTML)*s[0].innerHTML+"元";
+				zh();
+		}
+		function jian2(){
+			if(s[1].innerHTML==0){
+				
+			}else{
+				s[1].innerHTML--;
+			}
+				xiaoji[1].innerHTML=parseInt(danjia[1].innerHTML)*s[1].innerHTML+"元";
+				zh();
+		}
+	
+		function jia2(){
+				s[1].innerHTML++;
+				xiaoji[1].innerHTML=parseInt(danjia[1].innerHTML)*s[1].innerHTML+"元";
+				zh();
+		}
+		function jian3(){
+			if(s[2].innerHTML==0){
+				
+			}else{
+				s[2].innerHTML--;
+			}
+				xiaoji[2].innerHTML=parseInt(danjia[2].innerHTML)*s[1].innerHTML+"元";
+				zh();
+		}
+	
+		function jia3(){
+				s[2].innerHTML++;
+				xiaoji[2].innerHTML=parseInt(danjia[2].innerHTML)*s[2].innerHTML+"元";
+				zh();
+		}
+		function jian4(){
+			if(s[3].innerHTML==0){
+				
+			}else{
+				s[3].innerHTML--;
+			}
+				xiaoji[3].innerHTML=parseInt(danjia[3].innerHTML)*s[1].innerHTML+"元";
+				zh();
+		}
+	
+		function jia4(){
+				s[3].innerHTML++;
+				xiaoji[3].innerHTML=parseInt(danjia[3].innerHTML)*s[3].innerHTML+"元";
+				zh();
+		}
+		var he = document.getElementById("he");
+		function zh(){
+		var h = 0;
+			for(var i = 0;i<xiaoji.length;i++){
+				h+=parseInt(xiaoji[i].innerHTML);
+			}
+			he.innerHTML="总价："+h+"元";
+		}		
+
+		</script>
+	</body>
+</html>
